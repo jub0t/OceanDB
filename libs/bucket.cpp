@@ -18,7 +18,7 @@ public:
   bool strict_type;
   
   // HashMap<RowName, Row<Id, Data>
-  std::unordered_map<std::string, std::unordered_map<uint64_t, BucketDataTypes>> rows;
+  std::unordered_map<uint64_t, std::unordered_map<std::string, BucketDataTypes>> rows;
 
   Bucket() {
     // this->strict_type = strict_type_checking;

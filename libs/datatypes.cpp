@@ -7,4 +7,6 @@ enum BucketDataTypes {
   Boolean,
 };
 
+class UniversalType {};
+
 #endif

@@ -8,7 +8,6 @@
 #include "./datatypes.cpp"
 #include <string>
 #include <vector>
-#include <iostream>
 
 struct BucketSchemaField {
   uint64_t max_len;

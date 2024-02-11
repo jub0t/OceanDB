@@ -12,7 +12,7 @@
 
 struct BucketSchemaField {
   uint64_t max_len;
-  BucketDataTypes datatype;  
+  UniversalTypes datatype;  
 };
 
 class Bucket {
@@ -21,7 +21,7 @@ public:
   bool strict_type;
   
   // HashMap<Id, Row<RowName, Data>
-  std::unordered_map<uint64_t, std::unordered_map<std::string, BucketDataTypes>> rows;
+  std::unordered_map<uint64_t, std::unordered_map<std::string, UniversalTypes>> rows;
 
   Bucket() {
     // this->strict_type = strict_type_checking;
@@ -31,11 +31,11 @@ public:
     schema[name] = sf;
   }
 
-  std::vector<std::unordered_map<std::string, BucketDataTypes>> Search(std::string key, Data ) {
-    std::vector<std::unordered_map<std::string, BucketDataTypes>> results;
+  std::vector<std::unordered_map<std::string, UniversalTypes>> Search(std::string key, UniversalUnion) {
+    std::vector<std::unordered_map<std::string, UniversalTypes>> results;
 
     std::for_each(rows.begin(), rows.end(), [](auto row){
-      std::cout << row.second.find("") << "\n";
+      // Match the "key" and collect the value in the "results" vector
     });
 
     return results;

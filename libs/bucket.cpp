@@ -7,7 +7,8 @@
 #include <unordered_map>
 #include "./datatypes.cpp"
 #include <string>
-#include <vector>
+
+#include "./rows.cpp"
 
 struct BucketSchemaField {
   uint64_t max_len;
@@ -20,7 +21,7 @@ public:
   bool strict_type;
   
   // HashMap<Id, Row<RowName, Data>
-  std::unordered_map<uint64_t, std::unordered_map<std::string, UniversalTypes>> rows;
+  std::unordered_map<uint64_t, RowCore> rows;
 
   Bucket() {
     // this->strict_type = strict_type_checking;
@@ -30,8 +31,8 @@ public:
     schema[name] = sf;
   }
 
-  std::vector<std::unordered_map<std::string, UniversalTypes>> Search(std::string key, UniversalUnion) {
-    std::vector<std::unordered_map<std::string, UniversalTypes>> results;
+  Rows Search(std::string key, UniversalUnion) {
+    Rows results;
 
     std::for_each(rows.begin(), rows.end(), [](auto row){
       // Match the "key" and collect the value in the "results" vector

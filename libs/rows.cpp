@@ -15,11 +15,19 @@ private:
   RowCore data;
 
 public:
-  Row(RowCore data): data(data)  {};
+  Row(RowCore data) {};
   
   RowCore Get() {
     return this->data;
   };
+};
+
+class Rows {
+private:
+  RowsCore data;
+
+public:
+  Rows() {};
 };
 
 #endif // !OCEAN_ROWS

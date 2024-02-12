@@ -13,10 +13,10 @@ enum class UniversalTypes: uint16_t {
 };
 
 union UniversalUnion {
-  OptionalValue<int64_t> int_val;
+  int64_t int_val;
   // OptionalValue<std::string> str_val;
-  OptionalValue<float> float_val;
-  OptionalValue<bool> bool_val;
+  float float_val;
+  bool bool_val;
 };
 
 class UniversalConverter {
@@ -25,7 +25,7 @@ class UniversalConverter {
   // };
 
   int64_t ToInteger(UniversalUnion un) {
-    return static_cast<int64_t>(un.int_val.Get());
+    return static_cast<int64_t>(un.int_val);
   };
 
   bool ToBoolean(UniversalUnion un) {

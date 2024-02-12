@@ -14,9 +14,21 @@ int main() {
 
   Bucket* users_bucket = ocean.GetBucket("users");
 
-  for (int i = 0; i < users_bucket->rows.size(); i++) {
+  for (int i; i < 1000000; i++) {
+    RowCore row;
+
+    UniversalUnion val = UniversalUnion{1};
+    val.int_val = 100;
+    row["UserId"] = val;
+
+    users_bucket->InsertRow(row);
+  }
+  
+  std::cout << users_bucket->row_count << "\n";
+
+  for (int i = 0; i < users_bucket->row_count; i++) {
     RowCore row = users_bucket->rows[i];
-    debug.DebugRows(row);
+    // debug.DebugRows(row);
   }
 
   return 0;

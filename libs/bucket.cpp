@@ -24,6 +24,7 @@ public:
   
   // HashMap<Id, Row<RowName, Data>
   RowsCore rows;
+  int64_t row_count;
 
   Bucket() {
     // this->strict_type = strict_type_checking;
@@ -34,7 +35,8 @@ public:
   }
 
   bool InsertRow(RowCore row) {
-
+    this->rows[row_count+1] = row;
+    this->row_count++;
 
     return true;
   };

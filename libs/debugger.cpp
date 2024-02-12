@@ -9,7 +9,7 @@ class OceanDebugger {
 public:
   void DebugRows(std::unordered_map<std::string, UniversalUnion> map) {
     for (auto& [key, value] : map) {
-      std::cout << "[KEY]: " << key << "\n[INT64]: " << value.int_val.Get();
+      std::cout << "[KEY]: " << key << " [INT64]: " << value.int_val << "\n";
     }
   };
 };

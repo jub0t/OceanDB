@@ -17,7 +17,7 @@ private:
 public:
   Row(RowCore data) {};
   
-  RowsCore GetAll() {
+  RowsCore Get() {
     return this->data;
   };
 };

@@ -33,6 +33,12 @@ public:
     schema[name] = sf;
   }
 
+  bool InsertRow(RowCore row) {
+
+
+    return true;
+  };
+
   Rows Search(std::string key, UniversalUnion un) {
     Rows results;
 

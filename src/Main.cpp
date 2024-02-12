@@ -14,12 +14,17 @@ int main() {
 
   Bucket* users_bucket = ocean.GetBucket("users");
 
-  for (int i; i < 1000000; i++) {
+  for (int i; i < 1024 * 512; i++) {
     RowCore row;
 
-    UniversalUnion val = UniversalUnion{1};
+    UniversalUnion val = UniversalUnion{0};
     val.int_val = 100;
     row["UserId"] = val;
+
+    UniversalUnion age = UniversalUnion{0};
+    age.float_val = 18.0;
+    row["Age"] = age;
+
 
     users_bucket->InsertRow(row);
   }
@@ -30,6 +35,11 @@ int main() {
     RowCore row = users_bucket->rows[i];
     // debug.DebugRows(row);
   }
+
+  int i;
+  while (true) {
+    std::cin >> i;
+  };
 
   return 0;
 }

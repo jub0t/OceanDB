@@ -35,7 +35,7 @@ public:
   }
 
   bool InsertRow(RowCore row) {
-    this->rows[row_count+1] = row;
+    this->rows[row_count] = row;
     this->row_count++;
 
     return true;

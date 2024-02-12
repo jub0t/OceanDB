@@ -1,5 +1,5 @@
 main:
-	g++ ./src/Main.cpp -s -O3 -o ./build/main -std=c++20
+	g++ ./src/Main.cpp -s -O3 -o ./build/oceandb
 
 run:
-	./build/main
+	./build/oceandb

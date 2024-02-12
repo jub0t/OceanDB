@@ -15,13 +15,15 @@ struct BucketSchemaField {
   UniversalTypes datatype;  
 };
 
+using SchemaMap = std::unordered_map<std::string, BucketSchemaField>;
+
 class Bucket {
 public:
-  std::unordered_map<std::string, BucketSchemaField> schema;
+  SchemaMap schema;
   bool strict_type;
   
   // HashMap<Id, Row<RowName, Data>
-  std::unordered_map<uint64_t, RowCore> rows;
+  RowsCore rows;
 
   Bucket() {
     // this->strict_type = strict_type_checking;
@@ -31,7 +33,7 @@ public:
     schema[name] = sf;
   }
 
-  Rows Search(std::string key, UniversalUnion) {
+  Rows Search(std::string key, UniversalUnion un) {
     Rows results;
 
     std::for_each(rows.begin(), rows.end(), [](auto row){

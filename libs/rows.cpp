@@ -12,12 +12,12 @@ using RowsCore = std::array<RowCore, 1024 * 1024>;
 // Wrapper for RowCore:
 class Row {
 private:
-  RowCore data;
+  RowsCore data;
 
 public:
   Row(RowCore data) {};
   
-  RowCore Get() {
+  RowsCore GetAll() {
     return this->data;
   };
 };

@@ -40,8 +40,8 @@ public:
 };
 
 enum BucketErrors {
-  Success = 0,
-  AlreadyExists = 1,
+  Success,
+  AlreadyExists,
 };
 
 template<typename T>

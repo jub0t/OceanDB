@@ -7,7 +7,7 @@
 #include "./datatypes.cpp"
 
 using RowCore = std::unordered_map<std::string, UniversalUnion>;
-using RowsCore = std::array<RowCore, 1024 * 512>;
+using RowsCore = std::array<RowCore, 8>;
 
 // Wrapper for RowCore:
 class Row {

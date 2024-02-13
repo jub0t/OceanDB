@@ -12,7 +12,7 @@
 
 struct BucketSchemaField {
   uint64_t max_len;
-  UniversalTypes datatype;  
+  UniversalTypes datatype;
 };
 
 using SchemaMap = std::unordered_map<std::string, BucketSchemaField>;

@@ -30,6 +30,7 @@ class UniversalConverter {
   bool ToBoolean(UniversalUnion un) {
     return static_cast<bool>(un.bool_val);
   };
+
 };
 
 #endif

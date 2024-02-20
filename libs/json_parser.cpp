@@ -32,7 +32,7 @@ public:
 
 public:
   // Row<RowInfo, Vector<Row>>
-  std::string ParseRows(RowInput ri) {
+  std::string StringifyRows(RowInput ri) {
     auto rows = ri.rows;
     std::cout << rows->size()<<"\n";
 
@@ -48,9 +48,21 @@ public:
 
       int fc = 0;
       for (auto& [key, value] : row) {
-        
-        el_str += "\"" + key + "\":" + "\"" + static_cast<const char>(value.int_val) + "\", ";
-        
+        // SEG FAULT, FIX
+        auto key_t = ri.schema->find(key)->second.datatype;
+
+        std::cout << "hMM";
+
+        switch (key_t) {
+          case UniversalTypes::NUMBER: {
+            el_str += "\"" + key + "\":" + "\"" + static_cast<const char>(value.int_val) + "\", ";
+          }
+          case UniversalTypes::STRING: {
+            el_str += "\"" + key + "\":" + "\"" + value.str_val.ToString() + "\", ";
+          }
+          default: {}
+        }
+
         fc++;
       }
 

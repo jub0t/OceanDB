@@ -43,7 +43,7 @@ int main() {
   ri.rows = &users_bucket->rows;
   ri.schema = &users_bucket->schema;
   
-  std::string parsed = json.ParseRows(ri);
+  std::string parsed = json.StringifyRows(ri);
   std::cout << parsed << "\n";
 
 
